@@ -1,12 +1,16 @@
-[gd_scene load_steps=6 format=3 uid="uid://cdoksexcakmop"]
+[gd_scene load_steps=8 format=3 uid="uid://cdoksexcakmop"]
 
 [ext_resource type="PackedScene" uid="uid://y5a4e3ajuy2r" path="res://scenes/StonePlatform.tscn" id="1"]
-[ext_resource type="PackedScene" uid="uid://datfp8kxjrjg" path="res://scenes/BlueShip.tscn" id="2"]
 [ext_resource type="Script" path="res://scenes/PlatformBlue.gd" id="3"]
 [ext_resource type="Script" path="res://scenes/ObjectiveArea.gd" id="4"]
+[ext_resource type="Script" path="res://scenes/green_ship.gd" id="4_3no83"]
+[ext_resource type="Texture2D" uid="uid://3ruxfsvp87ub" path="res://assets/playerShip1_green.png" id="4_62vac"]
 
 [sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(138.75, 79)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ijxsh"]
+size = Vector2(100, 76)
 
 [node name="MainLevel" type="Node"]
 
@@ -19,15 +23,70 @@ script = ExtResource("3")
 [node name="StonePlatform2" parent="PlatformBlue" instance=ExtResource("1")]
 position = Vector2(70, 0)
 
-[node name="BlueShip" parent="." instance=ExtResource("2")]
-position = Vector2(72.7009, 421.901)
-lock_rotation = true
+[node name="StonePlatform3" parent="PlatformBlue" instance=ExtResource("1")]
+position = Vector2(140, 0)
+
+[node name="StonePlatform4" parent="PlatformBlue" instance=ExtResource("1")]
+position = Vector2(210, 0)
+
+[node name="StonePlatform5" parent="PlatformBlue" instance=ExtResource("1")]
+position = Vector2(70, 0)
+
+[node name="StonePlatform6" parent="PlatformBlue" instance=ExtResource("1")]
+position = Vector2(770, 0)
+
+[node name="StonePlatform7" parent="PlatformBlue" instance=ExtResource("1")]
+position = Vector2(840, 0)
+
+[node name="StonePlatform8" parent="PlatformBlue" instance=ExtResource("1")]
+position = Vector2(280, 0)
+
+[node name="StonePlatform9" parent="PlatformBlue" instance=ExtResource("1")]
+position = Vector2(350, 0)
+
+[node name="StonePlatform10" parent="PlatformBlue" instance=ExtResource("1")]
+position = Vector2(420, 0)
+
+[node name="StonePlatform11" parent="PlatformBlue" instance=ExtResource("1")]
+position = Vector2(490, 0)
+
+[node name="StonePlatform12" parent="PlatformBlue" instance=ExtResource("1")]
+position = Vector2(560, 0)
+
+[node name="StonePlatform13" parent="PlatformBlue" instance=ExtResource("1")]
+position = Vector2(630, 0)
+
+[node name="StonePlatform14" parent="PlatformBlue" instance=ExtResource("1")]
+position = Vector2(700, 0)
+
+[node name="StonePlatform15" parent="PlatformBlue" instance=ExtResource("1")]
+position = Vector2(910, 0)
+
+[node name="StonePlatform16" parent="PlatformBlue" instance=ExtResource("1")]
+position = Vector2(980, 0)
+
+[node name="StonePlatform17" parent="PlatformBlue" instance=ExtResource("1")]
+position = Vector2(1050, 0)
+
+[node name="StonePlatform18" parent="PlatformBlue" instance=ExtResource("1")]
+position = Vector2(1120, 0)
 
 [node name="ObjectiveArea" type="Area2D" parent="."]
 script = ExtResource("4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ObjectiveArea"]
-position = Vector2(70.625, 40)
+position = Vector2(1082, 40)
 shape = SubResource("1")
+
+[node name="GreenShip" type="RigidBody2D" parent="."]
+script = ExtResource("4_3no83")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GreenShip"]
+position = Vector2(50, 384)
+shape = SubResource("RectangleShape2D_ijxsh")
+
+[node name="Sprite2D" type="Sprite2D" parent="GreenShip"]
+position = Vector2(50, 384)
+texture = ExtResource("4_62vac")
 
 [connection signal="body_entered" from="ObjectiveArea" to="ObjectiveArea" method="_on_ObjectiveArea_body_entered"]
